@@ -69,6 +69,5 @@ public class MouseAim : MonoBehaviour
         Vector3 center = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
         PointerVector = center;
         AimPoint.position = Vector3.Lerp(AimPoint.position, PointerVector, Time.deltaTime * 5f) ;
-
     }
 }
