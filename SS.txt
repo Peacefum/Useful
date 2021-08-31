@@ -1,0 +1,54 @@
+
+    public class SampleGpsProvider : GpsProviderBase
+    {
+        private SampleManager _sampleManager;
+        private ProviderStatus _providerStatus = ProviderStatus.Initializing;
+
+        [SerializeField] private bool _useFakeGps;
+        [SerializeField]
+        private GeoLocation _fakeLocation = new GeoLocation
+        {
+            Latitude = 37.5593010768882,
+            Longitude = 126.82674924827,
+            Altitude = 32
+        };
+
+        public GeoLocation FakeLocation
+        {
+            get => _fakeLocation;
+            set => _fakeLocation = value;
+        }
+
+        private void Start()
+        {
+            _sampleManager = GetComponent<SampleManager>();
+            _sampleManager.OnRemoteDataReady += () =>
+            {
+                _providerStatus = ProviderStatus.Ready;
+            };
+        }
+
+        public override GeoLocation GetCurrentLocation()
+        {
+            if (_providerStatus != ProviderStatus.Ready)
+            {
+                Debug.Log("Sample GPsProvider is not yet ready");
+                return null;
+            }
+
+            if (_useFakeGps)
+                _sampleManager.RemoteData.sensorExternalParameters.location = _fakeLocation;
+            return _sampleManager.RemoteData.sensorExternalParameters.location;            
+        }
+
+        public override ProviderStatus GetProviderStatus()
+        {
+            return _providerStatus;
+        }
+
+        public override void Destroy()
+        {
+
+        }
+    }
+}
