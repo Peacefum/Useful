@@ -1,0 +1,20 @@
+퍼미션먼저 하면 가능
+
+
+
+ public static string GetVideoPath(string dirPath)
+    {
+      
+        string galleryPath = string.Empty;
+        string persistentDataPath = Application.persistentDataPath;
+        galleryPath = persistentDataPath.Substring(0, persistentDataPath.IndexOf("Android")) + string.Format("Movies/광화담/{0}", dirPath);
+
+        //if (false == string.IsNullOrEmpty(dirPath) && false == Directory.Exists(dirPath))
+        //{
+        //    Directory.CreateDirectory(dirPath);
+        //}
+        Debug.Log("확인용    :   " + galleryPath);
+        
+
+        return galleryPath;
+    }

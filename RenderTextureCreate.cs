@@ -12,9 +12,9 @@ public class Map : MonoBehaviour
 		CreateClearTexture();
 
 		GetComponent<Renderer>().material.SetTexture("_MainTex", getWhiteRT());
-		GetComponent<Renderer>().material.SetTexture("_BumpMap", getWhiteRT());
-		GetComponent<Renderer>().material.SetTexture("_ParallaxMap", getWhiteRT());
-		GetComponent<Renderer>().material.SetFloat("_BumpScale", -0.5f);
+		//GetComponent<Renderer>().material.SetTexture("_BumpMap", getWhiteRT());
+		//GetComponent<Renderer>().material.SetTexture("_ParallaxMap", getWhiteRT());
+		//GetComponent<Renderer>().material.SetFloat("_BumpScale", -0.5f);
 
 
 		

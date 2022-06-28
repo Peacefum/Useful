@@ -34,10 +34,10 @@ public class RendPointer : MonoBehaviour
         {
             Renderer rend = ms.GetComponent<Renderer>();
             paintTextures.Add(ms, getWhiteRT());
-            rend.material.SetTexture("_PaintMap", paintTextures[ms]);
+            rend.material.SetTexture("_MainTex", paintTextures[ms]);
 
-            Material[] mat = ms.GetComponent<MeshRenderer>().materials;  // 지금은 메쉬콜라이더 가진애만 이지만 //메쉬콜라이더에 지정한  머테리얼 가진애로 바꿔야함
-            mat[1].SetTexture("_MainTex", rend.material.GetTexture("_PaintMap"));
+       //     Material[] mat = ms.GetComponent<MeshRenderer>().materials;  // 지금은 메쉬콜라이더 가진애만 이지만 //메쉬콜라이더에 지정한  머테리얼 가진애로 바꿔야함
+          //  mat[1].SetTexture("_MainTex", rend.material.GetTexture("_PaintMap"));
         }
     }
 
@@ -58,11 +58,11 @@ public class RendPointer : MonoBehaviour
 
                     Renderer rend = hit.transform.GetComponent<Renderer>();
                     paintTextures.Add(coll, getWhiteRT());
-                    rend.material.SetTexture("_PaintMap", paintTextures[coll]);
+                    rend.material.SetTexture("_MainTex", paintTextures[coll]);
 
                     //  imag.texture = rend.material.GetTexture("_PaintMap"); 투명 이미지에 적용가능
-                    Material[] mat = hit.transform.GetComponent<MeshRenderer>().materials; // 머테리얼 두개로 만들어서 하나에 뒤집어 쓰기
-                    mat[1].SetTexture("_MainTex", rend.material.GetTexture("_PaintMap"));
+                   // Material[] mat = hit.transform.GetComponent<MeshRenderer>().materials; // 머테리얼 두개로 만들어서 하나에 뒤집어 쓰기
+               //     mat[1].SetTexture("_MainTex", rend.material.GetTexture("_PaintMap"));
                 }
 
                     //    currentwhiteMap = hit.transform.name;
